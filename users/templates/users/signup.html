@@ -1,0 +1,22 @@
+{% extends "posts/base.html" %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="main-container">
+          <div class="topper">
+            <h1 class="title">Signup to Our Blog</h1>
+          </div>  
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form|crispy}}
+                <button class="btn btn-primary" type="submit">Sign up!</button>
+            </form>
+
+          
+
+ 
+    </div>
+
+
+    <!-- <a href="{% url 'blogposts' %}">View BLOG POSTS</a> -->
+{% endblock %}

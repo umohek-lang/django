@@ -1,0 +1,36 @@
+{% extends "posts/base.html" %}
+
+{% block content %}
+    <div class="main-container">
+                <div class="topper">
+                    <h1 class="title">Delete a Blogpost</h1>
+                
+                </div>  
+             <div class="article-delete">
+                
+
+                <div class="article-content">
+                    <h2>{{blog.title}}</h2>
+                    <div class="article-date">{{blog.created_at|date:"F j, Y"}}</div>
+                    <div class="article-date">{{blog.created_at|date:"d F Y H:i"}}</div>
+                    
+                    <p>{{blog.content|truncatechars:200}}</p>
+               <div class="article-image-delete">
+                    {% if blog.image %}
+                <img src="{{blog.image.url}}" alt="" srcset="">
+                {% endif %}
+                </div>
+                </div>
+
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <p class="delete-text">Are you that you want to Delete this BlogPost</p>
+            <button class="btn btn-danger">Yes, Delete</button>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+
+
+    <!-- <a href="{% url 'blogposts' %}">View BLOG POSTS</a> -->
+{% endblock %}

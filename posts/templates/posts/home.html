@@ -1,0 +1,66 @@
+{% extends "posts/base.html" %}
+
+{% block content %}
+<div class="main-container">
+          <div class="topper">
+            <h1 class="title">Welcome to Our blog</h1>
+          </div>  
+
+          <div>
+            {{blogscount}}
+            {% if blogscount == 0%}
+            <p>There are no blog posts yet</p>
+          {%else%}
+
+
+<div>
+    <!-- {{blogs}} -->
+     {% for blog in blogs %}
+        <div class="article">
+            <div class="article-image">
+                {% if blog.image %}
+                <img src="{{blog.image.url}}" alt="" srcset="">
+                {% endif %}
+            </div>
+
+            <div class="article-content">
+                <h2>{{blog.title}}</h2>
+            <div class="article-details">
+               <div class="article-date">{{blog.created_at|date:"F j, Y"}}</div>
+
+                {% if blog.category %}
+                 <div class="article-dot">&lmidot; </div>
+                 <p class="article-category">{{blog.category.name}}</p>
+                {% endif %}
+                <!-- <div class="article-date">{{blog.created_at|date:"d F Y H:i"}}</div> -->
+            <div class="article-dot"> by {{blog.created_by.username}}</div>
+
+            </div>
+                
+                <p>{{blog.content|truncatechars:200}}</p>
+                
+<div class="tag-holder">
+    {% if blog.tags.all %}
+        {% for tag in blog.tags.all %}
+            <span class="article-tags"> #{{tag.name}}</span>
+        {%endfor%}
+    {% endif %}
+</div>
+                
+            <div class="article-buttons">
+<a href="{% url 'details' blog.id %}" class="btn btn-outline-primary">Read more......</a>
+<!-- <a href="{% url 'delete' blog.id %}" class="btn btn-outline-danger">Delete</a> -->
+            </div>
+
+            </div>
+
+        </div>
+     {% endfor %}
+
+    </div>
+
+   {%endif%} 
+
+        </div>
+
+{% endblock %}

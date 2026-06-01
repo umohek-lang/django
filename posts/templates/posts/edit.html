@@ -1,0 +1,23 @@
+{% extends "posts/base.html" %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="main-container">
+          <div class="topper">
+            <h1 class="title">Edit a Blogpost</h1>
+            
+          </div>  
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- {{ form.title|as_crispy_field }}
+    {{ form.content|as_crispy_field }} -->
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Submit Your Post</button>
+</form>
+
+    </div>
+
+
+    <!-- <a href="{% url 'blogposts' %}">View BLOG POSTS</a> -->
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "posts/base.html" %}
+
+{% block content %}
+    <div class="main-container">
+                <div class="topper">
+                    <h1 class="title">{{blog.title}}</h1>
+                
+                </div>  
+             
+                
+
+                <div class="article-content">
+                   <div class="article-image-details">
+                    {% if blog.image %}
+                        <img src="{{blog.image.url}}" alt="" srcset="">
+                    {% endif %}
+                </div>
+
+                    <div class="article-date">{{blog.created_at|date:"F j, Y"}}</div>
+                    <div class="article-date">{{blog.created_at|date:"d F Y H:i"}}</div>
+                    
+                    <!-- <p>{{blog.content|truncatechars:200}}</p>  -->
+                    <p>{{blog.content|linebreaks}}</p> 
+               
+                </div>
+
+        
+        
+    </div>
+
+
+    <!-- <a href="{% url 'blogposts' %}">View BLOG POSTS</a> -->
+{% endblock %}
