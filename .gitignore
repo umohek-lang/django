@@ -1,0 +1,20 @@
+# Python cache files
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# Database (Django default SQLite)
+db.sqlite3
+
+# Media uploads (user images)
+media/
+
+# Environment variables (secret keys)
+.env
+
+# Django static build files (optional but good practice)
+staticfiles/
+
+django_browser_reload/
