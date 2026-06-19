@@ -4,12 +4,11 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('users/signup', views.signup, name='signup'),
-     path('users/profile', views.profile, name='profile'),
+    path('users/profile', views.profile, name='profile'),
     path('users/confirm/logout', views.logoutconfirm, name='logoutconfirm'),
 
     # Login Url
-    path(
-        'users/login',
+    path('users/login',
         auth_views.LoginView.as_view(template_name='users/login.html'),
         name='login'
     ),

@@ -10,7 +10,8 @@
             {{blogscount}}
             {% if blogscount == 0%}
             <p>There are no blog posts yet</p>
-          {%else%}
+         
+            {%else%}
 
 
 <div>
@@ -29,7 +30,7 @@
                <div class="article-date">{{blog.created_at|date:"F j, Y"}}</div>
 
                 {% if blog.category %}
-                 <div class="article-dot">&lmidot; </div>
+                 <div class="article-dot">&middot; </div>
                  <p class="article-category">{{blog.category.name}}</p>
                 {% endif %}
                 <!-- <div class="article-date">{{blog.created_at|date:"d F Y H:i"}}</div> -->

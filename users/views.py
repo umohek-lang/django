@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 # importing the userupdate form
 from .form import UserUpdateForm
 # Create your views here.
+
+
 def signup(request):
     form = UserCreationForm()
 
@@ -15,6 +17,7 @@ def signup(request):
             return redirect('home')
     context ={'form':form}
     return render(request, 'users/signup.html', context)
+
 
 def logoutconfirm(request):
     return render(request, 'users/logoutconfirm.html')

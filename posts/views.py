@@ -4,6 +4,7 @@ from .models import BlogPost
 
 # adding permissions
 from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 def home(request):
@@ -37,18 +38,20 @@ def create(request):
             content = form.cleaned_data['content']
             image = form.cleaned_data['image']
             category = form.cleaned_data['category']
+           
             # inserting Multiple Select Field
-
             tags = form.cleaned_data['tags']
+
             blog = BlogPost(
                 title = title,
                 content = content,
                 image = image,
-                category = category
+                category = category,
+                created_by=request.user
             )
             
             blog.save()
-
+ 
             # Handles Multiselect fields
             blog.tags.set(tags)
 
@@ -58,11 +61,11 @@ def create(request):
 
 
 @login_required
-def edit(request, id):
+def edit(request, pk):
     # blog = BlogPost.objects.get(id=id, created_by=request.user)
-    blog = BlogPost.objects.get(id=id)
+    blog = BlogPost.objects.get(pk=pk, created_by=request.user)
     
-    # redirecting user is a page is not created
+    # redirecting user if a page is not created
     if request.user != blog.created_by:
         return redirect('home')
 
@@ -85,7 +88,7 @@ def edit(request, id):
 
 @login_required
 def delete(request, pk):
-    blog = BlogPost.objects.get(id=pk)
+    blog = BlogPost.objects.get(id=pk,  created_by=request.user)
 
     if request.user != blog.created_by:
         return redirect('home')

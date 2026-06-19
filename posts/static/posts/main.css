@@ -67,9 +67,13 @@ box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 border-radius: 16px;
 padding: 32px;
 }
+
+/* title from blogposts.html */
 .title{
     margin: 0;
 }
+
+/* topper from blogposts.html */
 .topper{
     display: flex;
     flex-direction: row;
@@ -83,6 +87,8 @@ padding: 32px;
     overflow-wrap: break-word;
     overflow: hidden;
 } */
+
+/* article on home.html */
 .article,
 .article-delete{
    display: flex; 

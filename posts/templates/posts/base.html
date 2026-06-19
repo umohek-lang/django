@@ -23,12 +23,18 @@
         </div>
 
         <ul class="navbar-links"> 
-            <li><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+            <li>
+                <a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+            </li>
 
             {% if user.is_authenticated %}
-            <li><a href="{% url 'blogposts' %}" class="{% if request.path == '/blogposts' %}active{% endif %}">My Blogposts</a></li>
+            <li>
+                <a href="{% url 'blogposts' %}" class="{% if request.path == '/blogposts' %}active{% endif %}">My Blogposts</a>
+            </li>
 
-            <li><a href="{%url 'profile' %}" class="{% if request.path == '/users/profile' %}active{% endif %}">Sign in as: {{user.username}}</a></li>
+            <li>
+                <a href="{%url 'profile' %}" class="{% if request.path == '/users/profile' %}active{% endif %}">Sign in as: {{user.username}}</a>
+            </li>
 
 
             <li>
@@ -36,9 +42,13 @@
             </li>
             {%else%}
 
-            <li><a href="{% url 'signup' %}" class="{% if request.path == '/users/signup' %}active{% endif %}">Signup</a></li>
+            <li>
+                <a href="{% url 'signup' %}" class="{% if request.path == '/users/signup' %}active{% endif %}">Signup</a>
+            </li>
 
-             <li><a href="{% url 'login' %}" class="{% if request.path == '/users/login' %}active{% endif %}">Login</a></li>
+             <li>
+                <a href="{% url 'login' %}" class="{% if request.path == '/users/login' %}active{% endif %}">Login</a>
+            </li>
             
              
 
