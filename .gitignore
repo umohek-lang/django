@@ -17,4 +17,7 @@ media/
 # Django static build files (optional but good practice)
 staticfiles/
 
-django_browser_reload/
+django_browser_reload/venv/
+__pycache__/
+*.pyc
+db.sqlite3
