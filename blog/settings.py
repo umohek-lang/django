@@ -1,6 +1,21 @@
 from pathlib import Path
 import django_heroku, os
 import dj_database_url
+import cloudinary
+import cloudinary_storage
+
+
+
+CLOUDINARY_STORAGE = {
+    # 'CLOUD_NAME': 'your_cloud_name',
+    'CLOUD_NAME': 'dartt50vs',
+    # 'API_KEY': 'your_api_key',
+    'API_KEY': '732868213918844',
+    # 'API_SECRET': 'your_api_secret',
+    'API_SECRET': 'hcjkZGhpD_5SgI2scY_Vd3i6H6E',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +57,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     "django_browser_reload",
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 LOGIN_REDIRECT_URL = '/'   # Take user to home page
